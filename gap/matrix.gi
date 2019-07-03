@@ -14,7 +14,11 @@
 
 SLPforElementFuncsMatrix.TrivialMatrixGroup :=
    function(ri,g)
-     return StraightLineProgramNC( [ [1,0] ], 1 );
+     if(ri!.isone(g)) then
+        return StraightLineProgram( [ [1,0] ], 1 );
+     else
+        return fail;
+     fi;
    end;
 
 FindHomMethodsMatrix.TrivialMatrixGroup := function(ri, G)

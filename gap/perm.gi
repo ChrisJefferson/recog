@@ -14,7 +14,11 @@
 
 SLPforElementFuncsPerm.TrivialPermGroup :=
    function(ri,g)
-     return StraightLineProgram( [ [1,0] ], 1 );
+     if(ri!.isone(g)) then
+        return StraightLineProgram( [ [1,0] ], 1 );
+     else
+        return fail;
+     fi;
    end;
 
 FindHomMethodsPerm.TrivialPermGroup := function(ri, G)
